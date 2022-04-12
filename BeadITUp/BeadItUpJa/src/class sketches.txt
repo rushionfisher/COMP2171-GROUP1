@@ -1,0 +1,84 @@
+Authentication (implements Operations Interface){
+    - PreparedStatement verify
+    - String role
+    - String user
+    - int pw
+    + ArrayList<String> menu_list
+    - ArrayList<String> userMenu
+    - String request
+    - ResultSet result
+    - String auth_message
+    - String auth_option
+
+    + Authentication()
+    + void authenticate(String user, String pw)
+    + String logout()
+    + ResultSet sendMenuRequest(String type)
+    + String getRole()
+    + String getUser()
+    + Connection getDbConn()
+    + String getAuth_message()
+    + ArrayList<String> getUserMenu()
+    + ArrayList<String> getMenu_list()
+    + String getRequest()
+    + String getAuth_option()
+    + String toString()
+}
+
+Operations<Interface> (aggregates DBConnect){
+    + final String createUser
+    + final String createStock
+    + final String createBracelet
+    + final String createCustomer
+    + final String editUser
+    + final String editStock
+    + final String editBracelet
+    + final String editCustomer
+    + final String viewUsers
+    + final String viewUser
+    + final String viewInventory
+    + final String viewStock
+    + final String viewBracelets
+    + final String viewCustomer
+    + final String viewBracelet
+}
+
+DBConnect{
+    static final String DB
+    static final String USER
+    static final String PWD
+    + static Connection conn
+
+    + DBConnect()
+    + String notification()
+    + Connection dbconnection()
+    + void save(String table, HashMap<String, String> dict)
+}
+
+    - static DBConnect conn
+    - PreparedStatement ps
+    - String role
+    - String user
+    - int pw
+    - ArrayList<String> userMenu
+    - String request
+    - String auth_message
+    - String auth_option
+    + Authentication()
+    + String authenticate(String, String) 
+    + String logout()
+    - String login()
+    + String getRequest()
+    + void setRequest(String)
+    + String getRole()
+    + int getPwd()
+    + String getUser()
+    + static Connection getDbConn()
+    + String getAuth_message()
+    + ArrayList<String> getUserMenu()
+    + String getAuth_option()
+    + PreparedStatement getPS()
+    + String toString()
+
+
+
